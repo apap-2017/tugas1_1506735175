@@ -11,26 +11,37 @@
 
 			<h4 th:text="'Lihat Data Penduduk Berdasarkan Kecamatan di ' + ${namaKota}"></h4>
 			<br/>
-			<h5>Kota/Kabupaten</h5>
-			<a th:text="${namaKota}"></a>
+			
 			<br/>
-			<h5>Kecamatan</h5>
+			
 		    <form method="GET" action="/penduduk/cari">
-			    <table width="30%">
-			    	<td>
+			    <table >
+			    	<tr>
+				    <h5>Kota/Kabupaten</h5>
+				    </tr>
+			    	<tr>
+						<select class="form-control" name="kt" id="kota" th:readonly="true" required="true" >
+	                   	 	<option th:value="${idKota}" th:text="${namaKota}">Kota yang dipilih</option>
+	               		 </select>			    	
+			    	</tr>
+			    	
+			    	<tr>
+			    	<h5>Kecamatan</h5>
+			    	</tr>
+			    	<tr>
 				        <select required="true" class="form-control" name="kc" id="kecamatan"  >
 				             <option value="" th:disabled="disabled" th:selected="selected">Pilih Kecamatan</option>
 				             <div th:each="kecamatan : ${kecamatan}">
 				                  <option th:value="${kecamatan.idKecamatan}" th:text="${kecamatan.namaKecamatan}">ecamatan dipilih</option>
 				             </div>
 				       </select>
-			       </td>
+			       </tr>
 			       
-			       <td>
+			       <tr>
 				        <div>
 							<button class="btn btn-primary" type="submit">LIHAT</button>
 						</div>
-				   </td>
+				   </tr>
 				</table>	
 			</form>	
 		</div>
