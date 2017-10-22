@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>Not Found</title>
+		<div th:replace="fragments/fragment :: links"></div>
+	</head>
+	<body>
+		<div th:replace="fragments/fragment :: header"></div>
+		<br/>
+   	
+		<div class="container-fluid">
+
+			<h4 th:text="'Lihat Data Penduduk Berdasarkan Kelurahan di Kecamatan ' + ${namaKecamatan}"></h4>
+			<br/>
+			<h5>Kecamatan</h5>
+			<a th:text="${namaKecamatan}"></a>
+			<br/>
+			<h5>Kelurahan</h5>	
+		    <form method="GET" action="/penduduk/cari">
+			    <table width="30%">
+			    	<td>
+				        <select required="true" class="form-control" name="kl" id="kelurahan"  >
+				             <option value="" th:disabled="disabled" th:selected="selected">Pilih Kelurahan</option>
+				             <div th:each="kelurahan : ${kelurahan}">
+				                  <option th:value="${kelurahan.idKelurahan}" th:text="${kelurahan.namaKelurahan}"></option>
+				             </div>
+				       </select>
+			       </td>
+			       
+			       <td>
+				        <div>
+							<button class="btn btn-primary" type="submit">LIHAT</button>
+						</div>
+				   </td>
+				</table>	
+			</form>	
+		</div>
+		
+		<div th:replace="fragments/fragment :: footer"></div>
+	</body>
+</html>

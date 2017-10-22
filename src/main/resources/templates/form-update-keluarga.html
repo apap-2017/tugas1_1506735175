@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<div th:replace="fragments/fragment :: links"></div>
+	<title>Update Keluarga</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+
+	<div th:replace="fragments/fragment :: header"></div>
+	<div class="container-fluid">
+	<br/>
+	<h1 class="page-header">Update Keluarga</h1>
+	<br/>
+	<form action="/keluarga/ubah/submit" method="POST" th:object="${keluarga}">
+		<table width="30%">
+			<tr>
+				<td>ID KELUARGA</td>
+				<td><input class="form-control" type="text" name="nik" readonly="true" th:value="${keluarga.nomorIdKeluarga}" th:field="*{nomorIdKeluarga}" /></td>
+			</tr>
+			<tr>
+				<td>NOMOR KK</td>
+				<td><input class="form-control" type="text" name="nomorKK" readonly="true" th:value="${keluarga.nomorKartuKeluarga}" th:field="*{nomorKartuKeluarga}" /></td>
+			</tr>
+			<tr>
+				<td>ALAMAT</td>
+				<td><input class="form-control" type="text" name="alamat" th:value="${keluarga.alamatKeluarga}" th:field="*{alamatKeluarga}" /></td>
+			</tr>
+			<tr>
+				<td>RT</td>
+				<td><input class="form-control" type="text" name="rt" th:value="${keluarga.rtKeluarga}" th:field="*{rtKeluarga}" /></td>
+			</tr>			
+			<tr>
+				<td>RW</td>
+				<td><input class="form-control" type="text" name="rw" th:value="${keluarga.rwKeluarga}" th:field="*{rwKeluarga}" /></td>
+			</tr>
+			<tr>
+				<td>KELURAHAN/DESA</td>
+				<td><input class="form-control" type="text" name="alamat" th:value="${keluarga.kelurahanDesa}" th:field="*{kelurahanDesa}"/></td>
+			</tr>			
+			
+			<tr>
+				<td>KECAMATAN</td>
+				<td><input class="form-control" type="text" name="kecamatan" readonly="true" th:value="${keluarga.kecamatan}" th:field="*{kecamatan}"/></td>
+			</tr>
+			<tr>
+				<td>KOTA</td>
+				<td><input class="form-control" type="text" name="kota" readonly="true" th:value="${keluarga.kota}" th:field="*{kota}"/></td>
+			</tr>		
+			
+		</table>
+		<br/>
+		<div>
+			<button class="btn btn-primary" type="submit" name="action" value="save">Update</button>
+		</div>
+	</form>
+	</div>
+</body>
+
+</html>
+
+
+
+

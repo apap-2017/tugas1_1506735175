@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<div th:replace="fragments/fragment :: links"></div>
+	<title>Update Penduduk</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+
+	<div th:replace="fragments/fragment :: header"></div>
+	<div class="container-fluid">
+		<br/>	
+		<h1 class="page-header">Update Penduduk</h1>
+		<br/>
+		<form action="/penduduk/ubah/submit" method="POST" th:object="${penduduk}">
+			<table width="30%">
+				<input type="hidden" name="idPenduduk" th:value="${penduduk.idPenduduk}" th:field="*{idPenduduk}" />
+				<tr>
+					<td>NIK</td>
+					<td><input class="form-control" type="text" name="nik" readonly="true" th:value="${penduduk.nikPenduduk}" th:field="*{nikPenduduk}" /></td>
+				</tr>
+				<tr>
+					<td>NAMA LENGKAP</td>
+					<td><input class="form-control" type="text" name="namaLengkap" th:value="${penduduk.namaLengkap}" th:field="*{namaLengkap}" /></td>
+				</tr>
+				<tr>
+					<td>TEMPAT LAHIR</td>
+					<td><input class="form-control" type="text" name="tempatLahir" th:value="${penduduk.tempatLahir}" th:field="*{tempatLahir}" /></td>
+				</tr>			
+				<tr>
+					<td>TANGGAL LAHIR</td>
+					<td><input class="form-control" type="date" name="tanggalLahir" th:value="${penduduk.tanggalKelahiran}" th:field="*{tanggalKelahiran}" /></td>
+				</tr>
+				
+				<tr>
+					<td>JENIS KELAMIN</td>
+					<td>
+						<select class="form-control" name="jenisKelamin" th:field="*{gender}">
+								<option value="0">Pria</option>
+								<option value="1">Wanita</option>
+						</select>				
+					</td>
+				</tr>
+				<tr>
+					<td>KEWARGANEGARAAN</td>
+					<td>
+						<select class="form-control" name="kewarganegaraan" th:field="*{kewarganegaraan}">
+								<option value="1">WNI</option>
+								<option value="0">WNA</option>
+						</select>				
+					</td>
+				</tr>
+				<tr>
+					<td>AGAMA</td>
+					<td><input class="form-control" type="text" name="agama" th:value="${penduduk.kepercayaan}" th:field="*{kepercayaan}"/></td>
+				</tr>
+				
+				<tr>
+					<td>PEKERJAAN</td>
+					<td><input class="form-control" type="text" name="pekerjaan" th:value="${penduduk.pekerjaan}" th:field="*{pekerjaan}"/></td>
+				</tr>
+				<tr>
+					<td>STATUS PERKAWINAN</td>
+					<td>
+						<select class="form-control" name="statusPerkawinan" th:field="*{statusKawin}">
+								<option value="Belum Kawin">Belum Kawin</option>
+								<option value="Kawin">Kawin</option>
+						</select>	
+					</td>
+				</tr>
+				<tr>
+					<td>STATUS KEMATIAN</td>
+					<td>
+						<select class="form-control" name="statusKematian" th:field="*{tiada}">
+								<option value="0">Masih Ada</option>
+								<option value="1">Sudah Tiada</option>
+						</select>
+					</td>
+				</tr>				
+				<!--
+				
+							
+				
+				<tr>
+					<td>ALAMAT</td>
+					<td><input type="text" name="alamat" th:value="${penduduk.alamat}" th:field="*{alamat}"/></td>
+				</tr>
+				<tr>
+					<td>RT</td>
+					<td><input type="text" name="rt" th:value="${penduduk.RT}" th:field="*{RT}"/></td>
+				</tr>
+				<tr>
+					<td>RW</td>
+					<td><input type="text" name="rw" th:value="${penduduk.RW}" th:field="*{RW}"/></td>
+				</tr>
+				<tr>
+					<td>GOLONGAN DARAH</td>
+					<td>
+						<select name="golongandarahnya">
+									<option value="A+">A+</option>
+									<option value="A-">A-</option>
+									<option value="B+">B+</option>
+									<option value="B-">B-</option>
+									<option value="AB+">AB+</option>
+									<option value="AB-">AB-</option>
+									<option value="O+">O+</option>
+									<option value="O-">O-</option>
+						</select>				
+					</td>
+				</tr>
+	
+				
+	
+				-->
+			</table>
+			<div>
+				<button class="btn btn-primary" type="submit" name="action" value="save">Update</button>
+			</div>
+		</form>
+		</div>
+</body>
+
+</html>
+
+
+
+

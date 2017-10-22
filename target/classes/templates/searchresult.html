@@ -1,0 +1,38 @@
+<html>
+
+	<head>
+		<title>Cari Penduduk</title>
+		<div th:replace="fragments/fragment :: links"></div>
+	</head>
+	
+	<body>
+	
+		<div th:replace="fragments/fragment :: header"></div>
+		<br/>
+		<div class="container-fluid">
+		
+			<h3>Lihat Data Penduduk Berdasarkan Kota / Kabupaten</h3>
+			<br/>
+			<h5>Kota/Kabupaten</h5>
+		    <form method="GET" action="/penduduk/cari">
+			    <table width="30%">
+			    	<td>
+				        <select required="true" class="form-control" name="kt" id="kota"  >
+				             <option value="" th:disabled="disabled" th:selected="selected">Pilih Kota/Kabupaten</option>
+				             <div th:each="kota : ${kota}">
+				                  <option th:value="${kota.idKotaKabupaten}" th:text="${kota.namaKotaKabupaten}">Kota dipilih</option>
+				             </div>
+				       </select>
+			       </td>
+			       
+			       <td>
+				        <div>
+							<button class="btn btn-primary" type="submit">LIHAT</button>
+						</div>
+				   </td>
+				</table>	
+			</form>
+		</div>	
+		<div th:replace="fragments/fragment :: footer"></div>
+		</body>
+</html>

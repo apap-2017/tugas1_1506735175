@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<title>Success</title>
+		<div th:replace="fragments/fragment :: links"></div>
+	</head>
+	<body>
+		<div th:replace="fragments/fragment :: header"></div>
+		<br/>
+		<div class="container">		
+		<h1>Sukses !</h1>
+		<br/>
+			<div th:if="${jenisFitur} == 'tambahPenduduk'">
+				<a th:text="'Penduduk dengan NIK ' + ${nikBaru} + ' berhasil ditambahkan'"></a>	
+			</div>
+			<div th:if="${jenisFitur} == 'tambahKeluarga'">
+				<a th:text="'Keluarga dengan NKK ' + ${nkkBaru} + ' berhasil ditambahkan'"></a>				
+			</div>
+			<div th:if="${jenisFitur} == 'updatePenduduk'">
+				<a th:text="'Penduduk dengan NIK ' + ${nikBaru} + ' berhasil diubah'"></a>				
+				<a id="nik" th:text="${nikBaru}" hidden="true"></a>
+				<br/>
+				<a><i>Anda akan di-redirect otomatis ...</i></a>
+				<script type="text/javascript">
+					setTimeout(myFunction, 3000);
+					function myFunction(){
+						window.location = "/penduduk/ubah/" + $('#nik').html();
+					}
+				</script>
+			</div>			
+			<div th:if="${jenisFitur} == 'updateKeluarga'">
+				<a th:text="'Keluarga dengan NKK ' + ${nkkBaru} + ' berhasil diubah'"></a>				
+				<a id="nkk" th:text="${nkkBaru}" hidden="true"></a>
+				<br/>
+				<a><i>Anda akan di-redirect otomatis ...</i></a>
+				<script type="text/javascript">
+					setTimeout(myFunction, 3000);
+					function myFunction(){
+						window.location = "/keluarga/ubah/" + $('#nkk').html();
+					}
+				</script>
+			</div>				
+			<div th:if="${jenisFitur} == 'nonaktif'">
+				<a id="nikTiada" th:text="${nikTelahTiada}" hidden="true"></a>
+				<a th:text="'Penduduk dengan NIK ' + ${nikTelahTiada} + ' sudah tidak aktif'"></a>				
+				<a id="nkk" th:text="${nkkBaru}" hidden="true"></a>
+				<br/>
+				<a><i>Anda akan di-redirect otomatis ...</i></a>
+				<script type="text/javascript">
+				setTimeout(myFunction, 3000);
+				function myFunction(){
+					window.location = "/penduduk?nik=" + $('#nikTiada').html();
+				}
+			</script>
+			</div>				
+		</div>
+		<div th:replace="fragments/fragment :: footer"></div>
+	</body>
+</html>
+

@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<title>Not Found</title>
+		<div th:replace="fragments/fragment :: links"></div>
+	</head>
+	<body>
+		<div th:replace="fragments/fragment :: header"></div>
+		<br/>
+
+		<div class="container">
+			<div th:if="${jenis} == 'nik'">
+				<h3 th:text="'Penduduk dengan NIK ' + ${nik} + ' tidak ditemukan'"></h3>
+				<a>Silahkan masukan NIK dengan benar</a>			
+			</div>
+			<div th:if="${jenis} == 'nkk'">
+				<h3 th:text="'Keluarga dengan NKK ' + ${nkk} + ' tidak ditemukan'"></h3>
+				<a>Silahkan masukan NKK dengan benar</a>			
+			</div>
+		</div>
+		
+		<div th:replace="fragments/fragment :: footer"></div>
+	</body>
+</html>
+

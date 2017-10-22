@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Tambah Penduduk</title>
+	<div th:replace="fragments/fragment :: links"></div>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	<div th:replace="fragments/fragment :: header"></div>
+	<div class="container-fluid">
+	<br/>
+	<h1 class="page-header">Form Menambahkan Penduduk</h1>
+	<br/>
+	<form action="/penduduk/tambah/submit" method="POST">
+		<table width="30%">
+			<tr>
+				<td>
+					<label for="">Nama </label> 
+				</td>
+				<td>
+					<input type="text" class="form-control" required="true" name="namanya" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="">Tempat Lahir</label> 
+				</td>
+				<td>
+					<input type="text" class="form-control" required="true" name="tempatLahirnya" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="">Tanggal Lahir</label> 
+				</td>
+				<td>
+					<input type="date" class="form-control" required="true" name="tanggalLahirnya" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="">Jenis Kelamin</label> 
+				</td>
+				<td>
+					<select required="required" name="jenisKelaminnya" class="form-control">
+							<option value="0">Pria</option>
+							<option value="1">Wanita</option>
+					</select>
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					<label for="">Golongan Darah</label> 
+				</td>
+				<td>
+					<select required="required" name="golonganDarahnya"  class="form-control" >
+								<option value="A+">A+</option>
+								<option value="A-">A-</option>
+								<option value="B+">B+</option>
+								<option value="B-">B-</option>
+								<option value="AB+">AB+</option>
+								<option value="AB-">AB-</option>
+								<option value="O+">O+</option>
+								<option value="O-">O-</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="">Agama</label> 
+				</td>
+				<td>
+					<input type="text" name="agamanya"  class='form-control' required="true" />
+				</td>
+			</tr>										
+			<tr>
+				<td>
+					<label for="">Status Perkawinan</label> 
+				</td>
+				<td>
+					<select required="required" name="statusKawinnya"  class='form-control' >
+							<option value="Belum Kawin">Belum Kawin</option>
+							<option value="Kawin">Kawin</option>
+					</select>
+				</td>
+			</tr>						
+			<tr>
+				<td>
+					<label for="">Pekerjaan</label> 
+				</td>
+				<td>
+					<input type="text" name="pekerjaannya"  class='form-control' required="true" />
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					<label for="">Kewarganegaraan</label> 
+				</td>
+				<td>
+					<select required="required" name="kewarganegaraannya"  class='form-control' >
+						<option value="1">WNI</option>
+						<option value="0">WNA</option>
+					</select>					
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					<label for="">Status Kematian</label> 
+				</td>
+				<td>
+					<select required="required" name="statusKematiannya"  class='form-control' >
+						<option value="0">Hidup</option>
+						<option value="1">Mati</option>
+					</select>
+				</td>
+			</tr>										
+			<tr>
+				<td>
+					<label for="">id Keluarga</label> 
+				</td>
+				<td>
+					<input type="text" name="idKeluarganya"  class='form-control' required="true" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="">Status dalam Keluarga</label> 
+				</td>
+				<td>
+					<input type="text" name="statusDalamKeluarganya"  class='form-control' required="true"/>
+				</td>
+			</tr>		
+		</table>			
+		<div>
+			<button class= "btn btn-primary" type="submit" name="action" value="save">Save</button>
+		</div>
+	</form>
+	</div>
+
+</body>
+
+</html>
+

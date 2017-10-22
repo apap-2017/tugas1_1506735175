@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>Cari Penduduk</title>
+		<div th:replace="fragments/fragment :: links"></div>
+	</head>
+	<body>
+		<div th:replace="fragments/fragment :: header"></div>
+		<br/>
+   		
+		<div class="container-fluid">
+
+			<h4 th:text="'Lihat Data Penduduk Berdasarkan Kecamatan di ' + ${namaKota}"></h4>
+			<br/>
+			<h5>Kota/Kabupaten</h5>
+			<a th:text="${namaKota}"></a>
+			<br/>
+			<h5>Kecamatan</h5>
+		    <form method="GET" action="/penduduk/cari">
+			    <table width="30%">
+			    	<td>
+				        <select required="true" class="form-control" name="kc" id="kecamatan"  >
+				             <option value="" th:disabled="disabled" th:selected="selected">Pilih Kecamatan</option>
+				             <div th:each="kecamatan : ${kecamatan}">
+				                  <option th:value="${kecamatan.idKecamatan}" th:text="${kecamatan.namaKecamatan}">ecamatan dipilih</option>
+				             </div>
+				       </select>
+			       </td>
+			       
+			       <td>
+				        <div>
+							<button class="btn btn-primary" type="submit">LIHAT</button>
+						</div>
+				   </td>
+				</table>	
+			</form>	
+		</div>
+		
+		<div th:replace="fragments/fragment :: footer"></div>
+	</body>
+</html>
