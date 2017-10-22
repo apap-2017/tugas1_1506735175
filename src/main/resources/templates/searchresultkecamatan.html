@@ -11,20 +11,33 @@
 
 			<h4 th:text="'Lihat Data Penduduk Berdasarkan Kelurahan di Kecamatan ' + ${namaKecamatan}"></h4>
 			<br/>
-			<h5>Kecamatan</h5>
-			<a th:text="${namaKecamatan}"></a>
-			<br/>
-			<h5>Kelurahan</h5>	
+			
 		    <form method="GET" action="/penduduk/cari">
-			    <table width="30%">
-			    	<td>
+			    <table>
+			    	<tr><h5>Kota</h5>	
+			    	</tr>					    
+			    	<tr>
+						<select class="form-control" name="kt" id="kota" th:readonly="true" required="true" >
+	                   	 	<option th:value="${idKota}" th:text="${namaKota}">Kota yang dipilih</option>
+	               		 </select>			    	
+			    	</tr>
+			    	<tr><h5>Kota</h5>	
+			    	</tr>					    
+			    	<tr>
+						<select class="form-control" name="kc" id="kecamatan" th:readonly="true" required="true" >
+	                   	 	<option th:value="${idKecamatan}" th:text="${namaKecamatan}">Kecamatan yang dipilih</option>
+	               		 </select>			    	
+			    	</tr>			    	
+			    	<tr><h5>Kelurahan</h5>	
+			    	</tr>			    
+			    	<tr>
 				        <select required="true" class="form-control" name="kl" id="kelurahan"  >
 				             <option value="" th:disabled="disabled" th:selected="selected">Pilih Kelurahan</option>
 				             <div th:each="kelurahan : ${kelurahan}">
 				                  <option th:value="${kelurahan.idKelurahan}" th:text="${kelurahan.namaKelurahan}"></option>
 				             </div>
 				       </select>
-			       </td>
+			       </tr>
 			       
 			       <td>
 				        <div>
