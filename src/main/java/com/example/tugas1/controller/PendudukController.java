@@ -311,21 +311,32 @@ public class PendudukController {
   			model.addAttribute("kecamatan", daftarKecamatan);
   			return "searchresultkota";
   			
-  		} else if (idKecamatan != null) {
+  		} else if (idKota != null && idKecamatan != null && idKelurahan == null) {
   			List<KelurahanModel> daftarKelurahan = kelurahanDAO.selectKelurahanFromKecamatan(idKecamatan);
   			KecamatanModel kecamatannya = kecamatanDAO.selectKecamatanById(idKecamatan);
   			String namaKecamatan = kecamatannya.getNamaKecamatan();
-
+  			KotaKabupatenModel kotanya = kotaKabupatenDAO.selectKotaKabupaten(idKota);
+  			String namaKota = kotanya.getNamaKotaKabupaten();
+  			model.addAttribute("idKota", idKota);
+  			model.addAttribute("namaKota", namaKota);
   			model.addAttribute("idKecamatan", idKecamatan);
   			model.addAttribute("namaKecamatan", namaKecamatan);
   			model.addAttribute("kelurahan", daftarKelurahan);
   			return "searchresultkecamatan";
   			
-  		} else if (idKelurahan != null) {
+  		} else if (idKota != null && idKecamatan != null && idKelurahan != null) {
   			List<PendudukModel> daftarPenduduk = pendudukDAO.selectPendudukFromKelurahan(idKelurahan);
   			KelurahanModel kelurahannya = kelurahanDAO.selectKelurahanById(idKelurahan);
   			String namaKelurahan = kelurahannya.getNamaKelurahan();
+  			KotaKabupatenModel kotanya = kotaKabupatenDAO.selectKotaKabupaten(idKota);
+  			String namaKota = kotanya.getNamaKotaKabupaten();
+  			KecamatanModel kecamatannya = kecamatanDAO.selectKecamatanById(idKecamatan);
+  			String namaKecamatan = kecamatannya.getNamaKecamatan();
   			
+  			model.addAttribute("idKota", idKota);
+  			model.addAttribute("namaKota", namaKota);
+  			model.addAttribute("idKecamatan", idKecamatan);
+  			model.addAttribute("namaKecamatan", namaKecamatan);  			
   			model.addAttribute("idKelurahan", idKelurahan);
   			model.addAttribute("namaKelurahan", namaKelurahan);
   			model.addAttribute("penduduk", daftarPenduduk);
@@ -333,6 +344,6 @@ public class PendudukController {
   		}
   		
   		return "searchresult";
-  	}
+  	}  
 	 
 }
